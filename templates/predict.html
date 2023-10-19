@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Churn Predictor</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #b9b7b7d2;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .card {
+            border: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .card-header {
+            background-color: #79838f;
+            color: #fff;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+            padding: 20px;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #79838f;
+            border: none;
+            font-weight: bold;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header text-center">
+                <h1>Employee Churn Prediction</h1>
+            </div>
+            <div class="card-body">
+                <form action="{{ url_for('predict_datapoint')}}" method="post">
+                    
+
+                    <div class="form-group">
+                        <label for="Education">Education</label>
+                        <select class="form-control" name="Education" id="Education" required>
+                            <option value="" disabled selected>Select your Education</option>
+                            <option value="Bachelors">Bachelors</option>
+                            <option value="Masters">Masters</option>
+                            <option value="PHD">PHD</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="City">City</label>
+                        <select class="form-control" name="City" id="City" required>
+                            <option value="" disabled selected>Select your City</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="New Delhi">New Delhi</option>
+                            <option value="Pune">Pune</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Gender">Gender</label>
+                        <select class="form-control" name="Gender" id="Gender" required>
+                            <option value="" disabled selected>Select your Gender</option>
+                            <option value="Female">Female</option>
+                            <option value="Male">Male</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="EverBenched">Ever Benched</label>
+                        <select class="form-control" name="EverBenched" id="EverBenched" required>
+                            <option value="" disabled selected>Select Ever Benched</option>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="JoiningYear">Joining Year</label>
+                        <input type="number" class="form-control" name="JoiningYear" id="JoiningYear" placeholder="Enter your Joining Year" min="1980" max="2023" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PaymentTier">Payment Tier</label>
+                        <input type="number" class="form-control" name="PaymentTier" id="PaymentTier" placeholder="Enter your Payment Tier" min="1" max="3" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Age">Age</label>
+                        <input type="number" class="form-control" name="Age" id="Age" placeholder="Enter your Age" min="18" max="100" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ExperienceInCurrentDomain">Experience In Current Domain</label>
+                        <input type="number" class="form-control" name="ExperienceInCurrentDomain" id="ExperienceInCurrentDomain" placeholder="Enter your Experience In Current Domain" min="0" max="40" required>
+                    </div>
+
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-primary">Find Whether Employee Will Churn or Not</button>
+                    </div>
+                </form>
+                <h2 class="text-center mt-4">{{results}}</h2>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
