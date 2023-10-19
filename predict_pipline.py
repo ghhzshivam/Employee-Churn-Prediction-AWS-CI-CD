@@ -10,7 +10,7 @@ class PredictPipeline:
     def make_predictions(self, features):
         try:
             print('Loading model')
-            model = pickle.load(open('artifacts/emplyeechurn xgb.pkl', 'rb'))
+            model = pickle.load(open('artifacts/emplyeechurn rf.pkl', 'rb'))
             pred = model.predict(features)
             return pred
         
