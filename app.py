@@ -6,8 +6,6 @@ import pandas as pd
 
 from predict_pipline import CustomData, PredictPipeline
 
-a = 5
-
 application = Flask(__name__)
 
 app = application
